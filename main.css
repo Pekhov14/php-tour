@@ -1,0 +1,87 @@
+.codeflask__flatten {
+  font-size: 13px;
+  line-height: 20px;
+  white-space: pre;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: auto;
+  margin: 0 !important;
+  outline: none;
+  text-align: left;
+}
+
+.codeflask__textarea {
+  background: transparent !important;
+  border: none;
+  color: #444 !important;
+  z-index: 1;
+  resize: none;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  caret-color: #007bff;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  user-select: text;
+  pointer-events: auto;
+}
+
+.codeflask__textarea, pre, code {
+  font-weight: normal;
+  letter-spacing: initial;
+  background: rgb(243 244 246) !important;
+}
+.dark .codeflask__textarea, .dark pre, .dark code {
+  background: rgb(55 65 81) !important;
+  color: #d1d5db !important;
+}
+
+.codeflask__pre {
+  pointer-events: none;
+  z-index: 3;
+  overflow: hidden;
+}
+
+#editor { 
+    height: 100%;
+    position: relative;
+}
+
+.codeflask {
+    border-radius: 0.5rem;
+    height: 100% !important;
+    overflow: auto;
+    border: none;
+}
+
+.codeflask__pre {
+    margin: 0;
+    padding: 0;
+    background: transparent !important;
+    color: inherit;
+}
+
+.codeflask .token.keyword { color: #61afef !important; }
+.codeflask .token.string { color: #98c379 !important; }
+.codeflask .token.function { color: #c678dd !important; }
+.codeflask .token.variable { color: #e06c75 !important; }
+.codeflask .token.comment { color: #5c6370 !important; }
+.codeflask .token.operator { color: #b6b6b8 !important; }
+.codeflask .token.punctuation { color: #b6b6b8 !important; }
+
+.codeflask__flatten {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.codeflask__code {
+    color: #444 !important;
+}
+
+.dark .codeflask__code {
+    color: white !important;
+}
+
+.codeflask__textarea:focus {
+    box-shadow: none;
+}
