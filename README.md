@@ -1,12 +1,10 @@
-![Tour by PHP](screenshot.jpg)
-
 # PHP Tour 🌐🐘
+
+![PHP Tour Screenshot](screenshot.jpg)
 
 [php-tour.netlify.app](https://php-tour.netlify.app)
 
 **PHP Tour** is an interactive guide to learning PHP.
-
-![PHP Tour Screenshot](screenshot.png)
 
 ## 📖 Key Features
 
