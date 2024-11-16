@@ -1,5 +1,4 @@
 import './style.css'
-import { setupCounter } from './editor.js'
 
 import "prism-code-editor/prism/languages/php"
 
