@@ -1,4 +1,46 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#editor {
+    overflow-y: auto;
+}
+
+:root {
+    --bg-light: #ffffff;
+    --bg-dark: #1a1a1a;
+    --text-light: #000000;
+    --text-dark: #ffffff;
+}
+
+.bg-lightBg {
+    background-color: var(--bg-light);
+}
+
+.bg-darkBg {
+    background-color: var(--bg-dark);
+}
+
+.text-light {
+    color: var(--text-light);
+}
+
+.text-dark {
+    color: var(--text-dark);
+}
+
+.text-darkIcon {
+    color: var(--text-dark);
+}
+
+.text-lightIcon {
+    color: var(--text-light);
+}
+  
