@@ -26,7 +26,7 @@ darkIcon.classList.toggle("hidden", !isDark);
 
 const loadEditorTheme = (darkMode) => {
   loadTheme(darkMode ? 'github-dark' : 'github-light').then((theme) => {
-    console.log('Theme loaded:', theme);
+    console.log('Theme loaded:');
   });
 };
 
@@ -53,4 +53,19 @@ themeToggle.addEventListener("click", () => {
   darkIcon.classList.toggle("hidden", !isDark);
 
   loadTheme(isDark ? "github-dark" : "github-light");
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const editor = document.getElementById('editor');
+
+    editor.addEventListener('keydown', (event) => {
+        if (event.key === 'Tab') {
+            event.preventDefault();
+            const start = editor.selectionStart;
+            const end = editor.selectionEnd;
+
+            editor.value = editor.value.substring(0, start) + '\t' + editor.value.substring(end);
+            editor.selectionStart = editor.selectionEnd = start + 1;
+        }
+    });
 });
