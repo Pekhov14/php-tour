@@ -1,7 +1,5 @@
 # PHP Tour 🌐🐘 (prototype)
 
-![PHP Tour Screenshot]
-
 [php-tour.netlify.app](https://php-tour.netlify.app)
 
 **PHP Tour** is an interactive guide to learning PHP.
