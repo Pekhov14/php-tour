@@ -6,15 +6,17 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "tailwind": "npx tailwindcss -i src/style.css -o src/output.css --watch"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
-    "tailwindcss": "^3.4.15",
+    "tailwindcss": "^3.4.17",
     "vite": "^5.4.10"
   },
   "dependencies": {
+    "alpinejs": "^3.14.7",
     "prism-code-editor": "^3.4.0"
   }
 }

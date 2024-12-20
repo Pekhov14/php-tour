@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*:root {*/
+/*    --background-light: white;*/
+/*    --text-light: black;*/
+/*    --background-dark: #1e293b;*/
+/*    --text-dark: white;*/
+/*}*/
+
+/*body {*/
+/*    transition: background-color 0.3s ease, color 0.3s ease;*/
+/*}*/
+
+/*.dark {*/
+/*    background-color: var(--background-dark);*/
+/*    color: var(--text-dark);*/
+/*}*/
+
+/*body:not(.dark) {*/
+/*    background-color: var(--background-light);*/
+/*    color: var(--text-light);*/
+/*}*/
+
+/*@layer base {*/
+/*    :root {*/
+/*        --background: 255 255 255;*/
+/*        --foreground: 0 0 0;*/
+/*    }*/
+
+/*    .dark {*/
+/*        --background: 30 41 59;*/
+/*        --foreground: 255 255 255;*/
+/*    }*/
+/*}*/
+
+/*body {*/
+/*    background-color: rgb(var(--background));*/
+/*    color: rgb(var(--foreground));*/
+/*}*/

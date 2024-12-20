@@ -1,43 +1,141 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" x-data="phpTour()" :class="{ 'dark': isDark }">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactive PHP Tour</title>
-  <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css'>
-  <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Language Tour</title>
+    <link rel="stylesheet" href="src/style.css">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css'>
+    <link rel='stylesheet'
+          href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script type="module" src="src/main.js"></script>
 </head>
-<body class="h-screen w-screen bg-secondary text-gray-800 flex flex-col dark:bg-darkBg dark:text-darkText transition-colors duration-300">
-  <header class="bg-white dark:bg-gray-800 shadow-md p-4 flex justify-between items-center">
-    <div class="text-lg font-bold text-gray-800 dark:text-gray-100">
-      <h1>PHP Language Tour</h1>
-    </div>
-    <button id="themeToggle" class="px-4 py-2 text-darkBg dark:text-bg-lightBg rounded flex items-center">
-      <i id="lightIcon" class="fi fi-rr-sun mr-2 hidden text-lightIcon"></i>
-      <i id="darkIcon" class="fi fi-rr-moon mr-2 hidden text-darkIcon"></i>
-    </button>
-  </header>
-  <main class="flex flex-1 flex-wrap lg:flex-nowrap">
-    <section class="w-full lg:w-1/2 p-6 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-gray-300 dark:border-gray-700 bg-lightBg dark:bg-darkBg">
-      <div>
-        <h1 class="text-2xl font-semibold mb-4 text-gray-800 dark:text-gray-100">Variables</h1>
-        <p class="text-gray-700 dark:text-gray-300">
-          Variables in PHP are represented by a dollar sign followed by the name of the variable. The variable name is case-sensitive.
-        </p>
-      </div>
-    </section>    
-    <aside class="w-full lg:w-1/2 flex flex-col">
-      <div class="flex-1 bg-gray-100 dark:bg-gray-700 p-6">
-        <div id="editor" class="border border-gray-300 dark:border-gray-700 rounded"></div>
-      </div>
-      <div class="h-1/3 bg-white dark:bg-gray-900 border-t border-gray-300 dark:border-gray-700 p-6">
-        <div class="h-full flex items-center justify-center bg-gray-50 dark:bg-gray-800 border border-dashed border-gray-300 dark:border-gray-700 rounded">
-          <p class="text-gray-400 dark:text-gray-500">Output code</p>
+<body class="transition-colors duration-300 min-h-screen flex flex-col bg-white dark:bg-slate-900 text-black dark:text-white">
+<div class="min-h-screen flex flex-col">
+    <header class="flex items-center px-4 h-14 bg-blue-50 dark:bg-slate-800">
+        <div class="flex items-center gap-2">
+            <img src="logo.svg" alt="PHP Language Tour Logo" width="50px">
+            <span class="font-medium">PHP Language Tour</span>
         </div>
-      </div>
-    </aside>
-  </main>
+        <div class="ml-auto flex items-center gap-4">
+            <div class="flex items-center gap-2 border rounded-full px-3 py-1 dark:border-slate-700">
+                <button @click="setLanguage('en')" :class="{ 'font-bold': language === 'en' }" class="text-sm">EN
+                </button>
+                <span class="text-gray-300">|</span>
+                <button @click="setLanguage('de')" :class="{ 'font-bold': language === 'de' }" class="text-sm">DE
+                </button>
+                <span class="text-gray-300">|</span>
+                <button @click="setLanguage('es')" :class="{ 'font-bold': language === 'es' }" class="text-sm">ES
+                </button>
+                <span class="text-gray-300">|</span>
+                <button @click="setLanguage('fr')" :class="{ 'font-bold': language === 'fr' }" class="text-sm">FR
+                </button>
+                <span class="text-gray-300">|</span>
+                <button @click="setLanguage('it')" :class="{ 'font-bold': language === 'it' }" class="text-sm">IT
+                </button>
+                <span class="text-gray-300">|</span>
+                <button @click="setLanguage('ja')" :class="{ 'font-bold': language === 'ja' }" class="text-sm">JA
+                </button>
+                <span class="text-gray-300">|</span>
+                <button @click="setLanguage('pt-br')" :class="{ 'font-bold': language === 'pt-br' }" class="text-sm">
+                    PT-BR
+                </button>
+                <span class="text-gray-300">|</span>
+                <button @click="setLanguage('ru')" :class="{ 'font-bold': language === 'ru' }" class="text-sm">RU
+                </button>
+                <span class="text-gray-300">|</span>
+                <button @click="setLanguage('tr')" :class="{ 'font-bold': language === 'tr' }" class="text-sm">TR
+                </button>
+                <span class="text-gray-300">|</span>
+                <button @click="setLanguage('ua')" :class="{ 'font-bold': language === 'ua' }" class="text-sm">ua
+                </button>
+                <span class="text-gray-300">|</span>
+                <button @click="setLanguage('zh-cn')" :class="{ 'font-bold': language === 'zh-cn' }" class="text-sm">
+                    ZH-CN
+                </button>
+            </div>
+            <button @click="toggleTheme()" class="w-8 h-8 text-sm" x-text="isDark ? '🌙' : '☀️'"></button>
+        </div>
+    </header>
 
-  <script type="module" src="/main.js"></script>
+    <main class="flex-1 grid md:grid-cols-2 gap-4 p-4">
+        <div class="prose max-w-none dark:prose-invert flex flex-col">
+            <div class="flex-1">
+                <h1 class="flex items-center gap-2 text-2xl font-bold">
+                    Welcome to the PHP language tour! <span class="text-xl">👋</span>
+                </h1>
+
+                <p>
+                    This tour covers all aspects of the php language, and assuming you have some prior programming
+                    experience should teach you everything you need to write real programs in php.
+                </p>
+            </div>
+
+            <div class="flex justify-center items-center gap-4 mt-8">
+                <button class="text-blue-600 hover:underline dark:text-blue-400">Back</button>
+                <span>—</span>
+                <a href="contents.html" class="text-blue-600 hover:underline dark:text-blue-400">Contents</a>
+                <span>—</span>
+                <button class="text-blue-600 hover:underline dark:text-blue-400">Next</button>
+            </div>
+        </div>
+
+        <div class="space-y-4 h-[calc(100vh-8rem)]">
+            <div class="flex flex-col h-full overflow-hidden shadow-lg rounded-lg bg-white dark:bg-slate-800">
+                <div class="flex-1 p-4 overflow-auto">
+                    <pre class="font-mono text-sm" x-text="code"></pre>
+                </div>
+                <div class="p-4 bg-gray-100 dark:bg-slate-900 border-t border-gray-200 dark:border-slate-700">
+                    <div class="font-mono text-sm">Output: Hello, world!</div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!--<script>-->
+<!--  function phpTour() {-->
+<!--    return {-->
+<!--      code: `<?php-->
+<!--echo 'Hello, world!';-->
+<!--`,-->
+<!--      isDark: false,-->
+<!--      language: 'en',-->
+<!--      toggleTheme() {-->
+<!--        this.isDark = !this.isDark;-->
+<!--        // localStorage.setItem('isDark', this.isDark);-->
+<!--      },-->
+<!--      setLanguage(lang) {-->
+<!--        this.language = lang;-->
+<!--      },-->
+<!--      init() {-->
+<!--        // this.isDark = JSON.parse(localStorage.getItem('isDark')) || false;-->
+<!--      }-->
+<!--    }-->
+<!--  }-->
+<!--  </script>-->
+
+
+<script>
+  function phpTour() {
+    return {
+      code: `<?php
+echo 'Hello, world!';
+`,
+      isDark: localStorage.getItem('isDark') === 'true',
+      language: 'en',
+      toggleTheme() {
+        this.isDark = !this.isDark;
+        localStorage.setItem('isDark', this.isDark);
+        document.documentElement.classList.toggle('dark');
+      },
+      setLanguage(lang) {
+        this.language = lang;
+      }
+    }
+  }
+  </script>
 </body>
 </html>
