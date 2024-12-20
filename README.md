@@ -1,6 +1,5 @@
-# PHP Tour 🌐🐘
+# PHP Tour 🌐🐘 (prototype)
 
-![PHP Tour Screenshot](screenshot.jpg)
 
 [php-tour.netlify.app](https://php-tour.netlify.app)
 
